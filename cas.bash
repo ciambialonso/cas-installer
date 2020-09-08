@@ -81,8 +81,8 @@ function install() {
   # Start Mattermost INSTALLATION
   cd ../
   echo "  [INSTALL 4/10] Installing Mattermost"
-  git clone https://github.com/mattermost/mattermost-docker.git
-  cd mattermost-docker
+  git clone https://github.com/ciambialonso/cas-mattermost.git
+  cd cas-mattermost
   docker-compose build
   mkdir -pv ./volumes/app/mattermost/{data,logs,config,plugins,client-plugins}
   sudo chown -R 2000:2000 ./volumes/app/mattermost/
@@ -99,8 +99,8 @@ function install() {
   # Start Taiga INSTALLATION
   cd ../
   echo "  [INSTALL 6/10] Installing Taiga"
-  git clone https://github.com/ipedrazas/taiga-docker.git
-  cd taiga-docker
+  git clone https://github.com/ipedrazas/cas-taiga.git
+  cd cas-taiga
   sudo docker-compose up -d
 
 
@@ -124,7 +124,7 @@ function startAll {
   # Start Mattermost
   cd ../
   echo "  [START 2/8] Starting Mattermost"
-  cd mattermost-docker
+  cd cas-mattermost
   sudo docker-compose start
 
   # Start Sonarqube
@@ -136,7 +136,7 @@ function startAll {
   # Start Taiga
   cd ../
   echo "  [START 4/8] Starting Taiga"
-  cd taiga-docker
+  cd cas-taiga
   sudo docker-compose start
 
   # Wait for operation completion
@@ -161,7 +161,7 @@ function stopAll {
   # Stop Mattermost
   cd ../
   echo "  [STOP 2/8] Stopping Mattermost"
-  cd mattermost-docker
+  cd cas-mattermost
   sudo docker-compose stop
 
   # Stop Sonarqube
@@ -173,7 +173,7 @@ function stopAll {
   # Stop Taiga
   cd ../
   echo "  [STOP 4/8] Stopping Taiga"
-  cd taiga-docker
+  cd cas-taiga
   sudo docker-compose stop
 
   # Wait for operation completion
@@ -202,7 +202,7 @@ function deleteAll {
   # Delete Mattermost
   cd ../
   echo "  [DELETE 2/8] Deleting Mattermost"
-  cd mattermost-docker
+  cd cas-mattermost
   sudo docker-compose rm
 
   # Delete Sonarqube
@@ -214,7 +214,7 @@ function deleteAll {
   # Delete Taiga
   cd ../
   echo "  [DELETE 4/8] Deleting Taiga"
-  cd taiga-docker
+  cd cas-taiga
   sudo docker-compose rm
 
   # Wait for operation completion

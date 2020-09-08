@@ -139,18 +139,6 @@ function startAll {
   cd taiga-docker
   sudo docker-compose start
 
-  # Start Bugzilla
-  cd ../
-  echo "  [START 5/8] Starting Bugzilla"
-  cd docker-bugzilla
-  sudo docker-compose start
-
-  # Start Logger
-  cd ../
-  echo "  [START 6/8] Stopping Logger"
-  cd docker-logger
-  sudo docker-compose start
-
   # Wait for operation completion
   echo "  [START 7/8] Waiting for operations' completion"
   sleep 10
@@ -186,18 +174,6 @@ function stopAll {
   cd ../
   echo "  [STOP 4/8] Stopping Taiga"
   cd taiga-docker
-  sudo docker-compose stop
-
-  # Stop Bugzilla
-  cd ../
-  echo "  [STOP 5/8] Stopping Bugzilla"
-  cd docker-bugzilla
-  sudo docker-compose stop
-
-  # Stop Logger
-  cd ../
-  echo "  [STOP 6/8] Stopping Logger"
-  cd docker-logger
   sudo docker-compose stop
 
   # Wait for operation completion
@@ -239,18 +215,6 @@ function deleteAll {
   cd ../
   echo "  [DELETE 4/8] Deleting Taiga"
   cd taiga-docker
-  sudo docker-compose rm
-
-  # Delete Bugzilla
-  cd ../
-  echo "  [DELETE 5/8] Deleting Bugzilla"
-  cd docker-bugzilla
-  sudo docker-compose rm
-
-  # Delete Logger
-  cd ../
-  echo "  [DELETE 6/8] Deleting Logger"
-  cd docker-logger
   sudo docker-compose rm
 
   # Wait for operation completion

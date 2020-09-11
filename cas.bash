@@ -92,6 +92,7 @@ function install() {
   sudo rm -rf cas-mattermost
   mv mattermost-docker cas-mattermost
   cd cas-mattermost
+  echo "Spostamenti di cartelle fatti ......"
   docker-compose build
   mkdir -pv ./volumes/app/mattermost/{data,logs,config,plugins,client-plugins}
   sudo chown -R 2000:2000 ./volumes/app/mattermost/

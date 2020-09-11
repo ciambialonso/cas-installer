@@ -81,7 +81,16 @@ function install() {
   # Start Mattermost INSTALLATION
   cd ../
   echo "  [INSTALL 4/10] Installing Mattermost"
+  git clone https://github.com/mattermost/mattermost-docker.git
+  cd mattermost-docker
+  sudo rm docker-compose.yml
+  cd ..
   git clone https://github.com/ciambialonso/cas-mattermost.git
+  cd cas-mattermost
+  cp docker-compose.yml cas-mattermost 
+  cd ..
+  sudo rm -rf cas-mattermost
+  mv mattermost-docker cas-mattermost
   cd cas-mattermost
   docker-compose build
   mkdir -pv ./volumes/app/mattermost/{data,logs,config,plugins,client-plugins}

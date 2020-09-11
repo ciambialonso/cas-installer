@@ -87,7 +87,7 @@ function install() {
   cd ..
   git clone https://github.com/ciambialonso/cas-mattermost.git
   cd cas-mattermost
-  mv docker-compose.yml cas-mattermost 
+  mv docker-compose.yml /cas-mattermost 
   cd ..
   sudo rm -rf cas-mattermost
   mv mattermost-docker cas-mattermost
@@ -109,7 +109,7 @@ function install() {
   # Start Taiga INSTALLATION
   cd ../
   echo "  [INSTALL 6/10] Installing Taiga"
-  git clone https://github.com/ipedrazas/cas-taiga.git
+  git clone https://github.com/ciambialonso/cas-taiga.git
   cd cas-taiga
   sudo docker-compose up -d
 

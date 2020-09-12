@@ -87,7 +87,7 @@ function install() {
   cd ..
   git clone https://github.com/ciambialonso/cas-mattermost.git
   cd cas-mattermost
-  mv docker-compose.yml /cas-mattermost 
+  mv docker-compose.yml ../mattermost-docker 
   cd ..
   sudo rm -rf cas-mattermost
   mv mattermost-docker cas-mattermost

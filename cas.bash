@@ -112,7 +112,21 @@ function install() {
   git clone https://github.com/ciambialonso/cas-taiga.git
   cd cas-taiga
   sudo docker-compose up -d
-
+  
+    # Start Bugzilla INSTALLATION
+  cd ../
+  echo "  [INSTALL 7/10] Installing Bugzilla"
+  git clone https://github.com/froque/docker-bugzilla.git
+  git clone https://github.com/ciambialonso/cas-bugzilla.git
+  cd cas-bugzilla
+  mv docker-compose.yml ../docker-bugzilla
+  sudo rm -rf cas-bugzilla
+  mv docker-bugzilla cas-bugzilla
+  cd cas-bugzilla
+  sudo docker-compose up -d
+  sudo docker-compose restart
+  sudo docker-compose restart
+  sudo docker-compose restart
 
     
   # Operation completion, print information data

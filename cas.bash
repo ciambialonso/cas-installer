@@ -120,6 +120,7 @@ function install() {
   git clone https://github.com/ciambialonso/cas-bugzilla.git
   cd cas-bugzilla
   mv docker-compose.yml ../docker-bugzilla
+  cd ..
   sudo rm -rf cas-bugzilla
   mv docker-bugzilla cas-bugzilla
   cd cas-bugzilla
